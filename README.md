@@ -22,6 +22,18 @@ The repository is organized modularly to separate responsibilities cleanly:
 
 ---
 
+## 📊 Entity-Relationship Model  
+The database consists of 4 main tables structured around a relational schema:
+  
+- **`product` (One-to-Many with `orders` and `review`):** Stores the core menu items. A single product can be linked to multiple customer orders and can receive multiple user reviews.
+- **`orders` (Many-to-One with `product`):** Tracks customer purchases. Each record connects back to a specific item via the `id_product` Foreign Key, calculating amounts based on quantity (`cant_products`) and `total` prices.
+- **`review` (Many-to-One with `product`):** Manages feedback left by customers. Each comment and score is directly tied to an individual item through `id_product`, allowing administrators to submit replies directly.
+- **`user` (Independent / Auth):** Stores administrative credentials (`user_name` and encrypted `password`) required to generate JSON Web Tokens (JWT) for protected system operations.
+  
+![Entity-Relationship Model](documentation/imagen_tablas.png)  
+
+---  
+      
 ## 📦 Local Deployment Guide
 
 1. **Requirements:** Ensure you have a local server environment like **XAMPP** running with both Apache and MySQL modules enabled.
@@ -145,5 +157,19 @@ Certain administrative actions require authentication. To authenticate:
   
 #### 📄 5. Global Pagination
 Any resource collection endpoint supporting bulk data can be paginated by appending the following parameters to the query string: **?show=CANTIDAD_DE_ELEMENTOS&page=NUMERO_DE_PAGINA**
+
+## 🖥️ Frontend Preview (UI Demo)
+
+Here is a look at the responsive user interface developed for the burger restaurant orders:
+
+### 🏠 Customer Orders
+![Orders](documentation/image-3.png)  
+
+### 📊 Admin Dashboard (CRUD Operations)
+Authorized administrators can log in to create, update, or delete products and manage customer orders in real-time.
+
+![Login](documentation/image-2.png)
+![Admin Dashboard](documentation/image-1.png)
+
 
 *Developed for professional growth and academic purposes focusing on Full-Stack Software Architectures.*
