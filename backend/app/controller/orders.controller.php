@@ -53,7 +53,7 @@ class OrdersControlers{
         }
         foreach ($req->query as $key => $value) {
             if (!in_array($key, $filterValues)) {
-                return $this->view->showResult("El parametro '$key' no es válido. Error de sintaxis", 400);
+                return $this->view->showResult("El parametro '$key' no es valido. Error de sintaxis", 400);
             }
         }
         $orders = $this->model->getOrders($orderBy, $order, $total,$cant_products,$date,$total_greater,$total_minor, $id_product);

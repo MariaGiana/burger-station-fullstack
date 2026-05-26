@@ -43,7 +43,7 @@ class ProductsController
 
             foreach ($req->query as $key => $value) {
                 if (!in_array($key, $filterValues)) {
-                    return $this->view->showResult("El filtro '$key' no es válido. Error de sintaxis", 400);
+                    return $this->view->showResult("El filtro '$key' no es valido. Error de sintaxis", 400);
                 }
             }
 

@@ -9,6 +9,20 @@ Welcome! This project is a comprehensive solution for managing a fast-food burge
 You can explore the fully functional live application here:
 * **Live Website:** [Burger Station Demo](https://mariagiana.infinityfree.me/burger-station/frontend/)
 
+## 🌐 Live API Testing (Public GET Endpoints)
+
+You can interact directly with the production database by clicking the links below to receive raw JSON data:
+
+* **Get All Products:** [GET /products](https://mariagiana.infinityfree.me/burger-station/backend/router.php?resource=products)
+* **Get All Reviews:** [GET /reviews](https://mariagiana.infinityfree.me/burger-station/backend/router.php?resource=reviews)
+Test a complex query (2 filters + DESC order + Pagination) directly in your browser:
+* **Filter by Name ("Hamburguesa") + Price (3000), Order by Price DESC, Page 1:**
+  [GET /products?name=Hamburguesa&price=3000&orderBy=price&order=desc&page=1](https://mariagiana.infinityfree.me/burger-station/backend/products?name=Hamburguesa&price=3000&orderBy=price&order=desc&page=1)
+* **Filter by Min Articles (1) + Total < 5000, Order by Total DESC, Page 1:**
+  [GET /orders?cant_products=1&total_minor=5000&orderBy=total&order=desc&page=1](https://mariagiana.infinityfree.me/burger-station/backend/orders?cant_products=1&total_minor=5000&orderBy=total&order=desc&page=1)
+  * **Filter by Client Name ("Juan") + Score (5), Order by Score DESC, Page 1:**
+  [GET /reviews?name=Juan&score=5&orderBy=score&order=desc&page=1](https://mariagiana.infinityfree.me/burger-station/backend/reviews?name=Juan&score=5&orderBy=score&order=desc&page=1)
+
 ---  
 
 ## 🛠️ Technologies Used
