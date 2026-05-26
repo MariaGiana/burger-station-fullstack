@@ -2,7 +2,14 @@
 
 Welcome! This project is a comprehensive solution for managing a fast-food burger restaurant. The application is divided into two independent components: a robust Backend (API REST) and a dynamic Frontend based on the MVC architecture that consumes these services.
 
----
+---  
+
+## 🌐 Live Demo
+
+You can explore the fully functional live application here:
+* **Live Website:** [Burger Station Demo](https://mariagiana.infinityfree.me/burger-station/frontend/)
+
+---  
 
 ## 🛠️ Technologies Used
 - **Backend:** Native PHP (OOP), MVC Architecture, Custom Semantic Routing System.
