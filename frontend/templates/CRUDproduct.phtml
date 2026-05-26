@@ -1,0 +1,54 @@
+<?php 
+require_once './templates/layout/header.phtml';
+?>
+  
+<div class="container overflow-hidden text-center">
+  <h2>PRODUCTOS</h2>
+  <h3>Seleccione la operacion que desea realizar</h3>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Imagen del producto</th>
+          <th scope="col">N° Producto</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Descripcion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($products as $product) : ?>
+          <tr>
+            <th scope="row">
+              <?php if (!empty($product->image_product)) : ?>
+                <img src="<?php echo $product->image_product ?>" id= "image_product" alt="Imagen de <?php echo $product->name ?>" style="width: 60px; height: auto">
+              <?php endif; ?>
+            </th>
+            <th scope="row"><?php echo $product->id ?></th>
+            <td><?php echo $product->name ?></td>
+            <td><?php echo $product->price ?></td>
+            <td><?php echo $product->description ?></td>
+            <td class="d-none d-md-table-cell">
+              <a href="<?php echo BASE_URL ?>modificarProducto/<?php echo $product->id ?>" class="btn text-white btn-success">Modificar</a>
+            </td>
+            <td class="d-none d-md-table-cell">
+              <a href="<?php echo BASE_URL ?>eliminarProducto/<?php echo $product->id ?>" class="btn text-white btn-danger">Eliminar</a>
+            </td>
+          </tr>
+          <tr class="d-md-none"> <!-- Fila para botones en pantallas pequeñas -->
+            <td colspan="5" class="text-center">
+              <!--<div class="d-flex flex-column align-items-center">   si los queremos apilados-->
+              <a href="<?php echo BASE_URL ?>modificarProducto/<?php echo $product->id ?>" class="btn text-white btn-success mb-2">Modificar</a>
+              <a href="<?php echo BASE_URL ?>eliminarProducto/<?php echo $product->id ?>" class="btn btn-danger">Eliminar</a>
+            </td>
+          </tr>
+        <?php endforeach ?>
+      </tbody>
+    </table>
+  </div>
+  <a class="btn btn-primary " href="<?php echo BASE_URL ?>nuevoProducto">AGREGAR</a>
+
+</div>
+<?php
+require_once './templates/layout/footer.phtml';
+?>

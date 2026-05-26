@@ -1,0 +1,24 @@
+<?php require './templates/layout/header.phtml'
+?>
+<div class="container mt-5">
+    <h2 class="mb-4">Órdenes para el Producto: <?= $product->name ?></h2>
+    <ul class="list-group">
+        <?php foreach ($orders as $order) { ?>
+            <li class="list-group-item mb-3 shadow-sm p-3 rounded">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="mb-1">ID Pedido: <?= $order->id ?></h5>
+                        <p class="mb-1"><b>Cantidad:</b> <?= $order->cant_products ?></p>
+                        <p class="mb-1"><b>Total:</b> $<?= $order->total ?></p>
+                        <p class="mb-0"><b>Fecha:</b> <?= $order->date ?></p>
+                        <p class="mb-0" ><b>Categoria:</b> <?= $product->name ?></p>
+                    </div>
+                </div>
+            </li>
+        <?php } ?>
+    </ul>
+</div>
+<div class="text-center mt-4">
+                <a href="<?php echo BASE_URL; ?>categorias" class="btn btn-primary ms-5 mt-2" id="volver">VOLVER</a>
+</div>
+<?php require './templates/layout/footer.phtml'; ?>

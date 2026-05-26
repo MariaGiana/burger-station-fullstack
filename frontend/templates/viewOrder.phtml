@@ -1,0 +1,24 @@
+<?php require './templates/layout/header.phtml' ?>
+<div class="container overflow-hidden text-center">
+    <div class="card text-center">
+        <div class="card-header">
+            Orden N° : <?php echo $order->id ?>
+        </div>
+        <div class="card-body">
+            <?php if($product->image_product != null) : ?>
+            <div class="text-center">
+                <img style="width: 400px; heigth: auto;" src="<?=$product->image_product?>" class="rounded" alt="imagen de <?=$product->name ?>"> 
+            </div>     
+            <?php endif ?>
+            <h5 class="card-title">Producto: <?php echo  $product->name ?></h5>
+            <p class="card-text">Fecha: <?php echo$order->date ?></p>
+            <p class="card-text">Total: <?php echo$order->total ?></p>
+            <p class="card-text">Cantidad producto: <?php echo$order->cant_products ?></p>
+            <p class="card-text">Descripcion: <?php echo $product->description ?></p>
+        </div>
+        <div class="card-footer text-body-secondary">
+             <a href="<?php echo BASE_URL; ?>home" class="btn btn-primary" id="volver">Volver</a>
+        </div>
+    </div>
+</div>
+<?php require './templates/layout/footer.phtml' ?>

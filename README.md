@@ -133,29 +133,8 @@ Certain administrative actions require authentication. To authenticate:
     "reply": "¡Muchas gracias por elegirnos, María!"
   }
   
-#### 🍔 4. Products (`/api/products`)
-
-| Method | Endpoint | Description | Token Required |
-| :--- | :--- | :--- | :---: |
-| **GET** | `/api/products` | Retrieves the list of available products. | ❌ |
-| **GET** | `/api/products/:id` | Retrieves details for a specific product. | ❌ |
-| **POST** | `/api/products` | Creates a new product in the menu. | 🔐 |
-| **PUT** | `/api/products/:id` | Modifies an existing product's data. | 🔐 |
-| **DELETE**| `/api/products/:id` | Removes a product from the catalog. | 🔐 |
-
-* **Query Parameters (GET):**
-  - **Sorting:** `orderBy=name\|price\|id` (defaults to `id`). Direction controlled with `order=asc\|desc`.
-  - **Filters:** `name` (partial search), `price` (exact match), `description` (partial search), `img` (partial match or lookup by null values).
-* **Body Structure (POST/PUT):**
-  ```json
-  {
-    "name": "Hamburguesa Doble Cheddar",
-    "price": 4500,
-    "description": "Doble carne, doble cheddar, salsa de la casa.",
-    "image_product": "url_de_la_imagen"
-  }
   
-#### 📄 5. Global Pagination
+#### 📄 4. Global Pagination
 Any resource collection endpoint supporting bulk data can be paginated by appending the following parameters to the query string: **?show=CANTIDAD_DE_ELEMENTOS&page=NUMERO_DE_PAGINA**
 
 ## 🖥️ Frontend Preview (UI Demo)

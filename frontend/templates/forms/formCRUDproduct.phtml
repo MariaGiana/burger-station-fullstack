@@ -1,0 +1,48 @@
+<?php 
+require_once './templates/layout/header.phtml';
+
+$isEdit = isset($product);  
+?>
+
+<div class="container my-5 p-4 shadow-sm bg-light rounded">
+    <h2 class="text-center text-black mb-4"><?= $isEdit ? "Editar producto" : "Agregar nuevo producto" ?></h2>
+
+    <form action="<?= $isEdit ? BASE_URL . 'modificarProducto/' . $product->id : BASE_URL . 'nuevoProducto' ?>" method="POST" enctype="multipart/form-data">
+        <div class="row mb-3">
+            <div class="col-md-9">
+                <div class="form-floating">
+                    <input name="name" type="text" class="form-control" id="nameInput" placeholder="Nombre del producto" 
+                        value="<?= $isEdit ? $product->name : '' ?>">
+                    <label for="nameInput">Nombre del producto</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-floating">
+                    <input required name="price" type="number" step="0.01" class="form-control" id="priceInput" placeholder="Precio"
+                        value="<?= $isEdit ? $product->price : '' ?>">
+                    <label for="priceInput">Precio</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-floating mb-3">
+            <textarea name="description" class="form-control" placeholder="Descripción" id="descriptionInput" style="height: 100px" required><?= $isEdit ? $product->description : '' ?></textarea>
+            <label for="descriptionInput">Descripción</label>
+        </div>
+
+        <div class="form-group">
+    <label for="image_product">Ingresar URL de la imagen</label>
+    <input type="url" style="width: 100%" class="form-control image_product" id="image_product" name="image_product" placeholder="http://ejemplo.com/imagen.jpg" value="<?= isset($product->image_product) ? $product->image_product : '' ?>">
+</div>
+
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg mt-3">Guardar</button>
+        </div>
+    </form>
+    <a href="<?php echo BASE_URL; ?>controlarProductos" class="btn btn-primary ms-5 mt-2" id="volver">VOLVER</a>
+</div>
+
+<?php 
+require_once './templates/layout/footer.phtml';
+?>

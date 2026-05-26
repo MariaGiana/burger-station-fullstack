@@ -1,0 +1,24 @@
+<?php require './templates/layout/header.phtml';?>
+
+<div class="container overflow-hidden text-center">
+<h2>ORDENES</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">N° Orden</th>
+        <th scope="col">Precio</th>
+        <th scope="col">----</th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php foreach($orders as $order) :?>
+      <tr>
+        <th scope="row"><?php echo$order->id?></th>
+        <td><?php echo $order->total ?></td>
+        <td><a class="btn btn-warning ms-2 mt-2" href="<?php echo BASE_URL . "verOrden/" . $order->id?>">Ver Completo</a></td>
+      </tr>
+    <?php endforeach ?>
+    </tbody>
+  </table>
+</div>
+<?php require './templates/layout/footer.phtml' ?>
