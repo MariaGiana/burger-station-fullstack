@@ -18,10 +18,10 @@ class ReviewsController{
         $orderBy = false;
         $name = null;
         $score = null;
-        $coment = null;
+        $comment = null;
         $reply = null;
         $orderValues = ['name', 'score','id_product'];
-        $filterValues = ['name', 'score', 'coment', 'reply', 'order', 'orderBy', 'page', 'show', 'resource'];
+        $filterValues = ['name', 'score', 'comment', 'reply', 'order', 'orderBy', 'page', 'show', 'resource'];
         if (isset($req->query->orderBy)) {
             $orderBy = $req->query->orderBy;
             if(!in_array($orderBy, $orderValues)){
@@ -37,8 +37,8 @@ class ReviewsController{
             $score = $req->query->score;
         }
 
-        if (isset($req->query->coment)) {
-            $coment = $req->query->coment;
+        if (isset($req->query->comment)) {
+            $comment = $req->query->comment;
         }
 
         if (isset($req->query->reply)) {
@@ -59,7 +59,7 @@ class ReviewsController{
         }
         
         try {
-            $reviews = $this->model->getReviews($orderBy, $order, $name, $score, $coment, $reply);
+            $reviews = $this->model->getReviews($orderBy, $order, $name, $score, $comment, $reply);
             if(isset($req->query->show) && !empty($req->query->show) && isset($req->query->page) && !empty($req->query->page)){
                 $lim= count($reviews);
                 $show = $req->query->show;
@@ -92,7 +92,7 @@ class ReviewsController{
     }
 
     private function checkFormData($req){
-        if(empty($req->body->id_product)||empty($req->body->client_name)||empty($req->body->score)|| empty($req->body->coment)){
+        if(empty($req->body->id_product)||empty($req->body->client_name)||empty($req->body->score)|| empty($req->body->comment)){
              $this->view->showResult("Faltan completar campos", 400);         
              return null; 
         }
@@ -110,12 +110,12 @@ class ReviewsController{
         if($score > 5){
             $score = 5;
         }
-        $coment = $req->body->coment;
+        $comment = $req->body->comment;
         $data =array(
             "id_product" => $id_product,
             "client_name"=>$client_name,
             "score"=>$score,
-            "coment"=>$coment
+            "comment"=>$comment
         );
         return $data;
     }

@@ -82,7 +82,7 @@ CREATE TABLE `review` (
   `id_product` int(11) NOT NULL,
   `client_name` varchar(100) NOT NULL,
   `score` int(11) NOT NULL,
-  `coment` text NOT NULL,
+  `comment` text NOT NULL,
   `reply` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -90,10 +90,10 @@ CREATE TABLE `review` (
 -- Volcado de datos para la tabla `review`
 --
 
-INSERT INTO `review` (`id`, `id_product`, `client_name`, `score`, `coment`, `reply`) VALUES
+INSERT INTO `review` (`id`, `id_product`, `client_name`, `score`, `comment`, `reply`) VALUES
 (1, 1, 'Juan Perez', 5, 'Excelente producto, me llegó en perfectas condiciones.', 'Gracias por tu reseña, Juan.'),
 (2, 2, 'Maria García', 4, 'El producto es bueno, pero la entrega fue un poco lenta.', 'Lamentamos el retraso, Maria. Estamos mejorando nuestro servicio.'),
-(3, 5, 'Carlos López', 3, 'El producto cumple, pero esperaba más por el precio.', 'Gracias por tu comentario, Carlos. Valoramos tu feedback.'),
+(3, 5, 'Carlos López', 3, 'El producto cumple, pero esperaba más por el precio.', 'Gracias por tu commentario, Carlos. Valoramos tu feedback.'),
 (4, 6, 'Ana Fernandez', 5, '¡Me encantó! Superó mis expectativas.', 'Nos alegra mucho que te haya gustado, Ana. ¡Gracias!'),
 (5, 7, 'Luis Ramírez', 2, 'El producto llegó con algunos defectos. No estoy satisfecho.', 'Lo sentimos, Luis. Por favor, contáctanos para solucionar el problema.');
 

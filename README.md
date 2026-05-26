@@ -122,14 +122,14 @@ Certain administrative actions require authentication. To authenticate:
 
 * **Query Parameters (GET):**
   - **Sorting:**  `orderBy=score\|name\|id_product` (defaults to `id`). Direction controlled with `order=asc\|desc`.
-  - **Filters:** `name`, `score`, `coment` (keyword search within comments), `reply` (keyword search within admin replies).
+  - **Filters:** `name`, `score`, `comment` (keyword search within comments), `reply` (keyword search within admin replies).
 * **Body Structure (POST/PUT):**
   ```json
   {
     "id_product": 1,
     "client_name": "María G.",
     "score": 5,
-    "coment": "Excelente atención y la comida llegó rapidísimo.",
+    "comment": "Excelente atención y la comida llegó rapidísimo.",
     "reply": "¡Muchas gracias por elegirnos, María!"
   }
   

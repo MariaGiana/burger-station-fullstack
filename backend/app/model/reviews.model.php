@@ -5,7 +5,7 @@ class ReviewsModel extends modelAbstract
     {
         parent::__construct();
     }
-    public function getReviews($orderBy, $order, $name = null, $score = null, $coment = null, $reply = null)
+    public function getReviews($orderBy, $order, $name = null, $score = null, $comment = null, $reply = null)
     {
         $sql = "SELECT * FROM review";
         $params = [];
@@ -20,9 +20,9 @@ class ReviewsModel extends modelAbstract
             $conditions[] = 'score = ?';
             $params[] = $score;
         }
-        if ($coment != null) {
-            $conditions[] = 'coment LIKE ?';
-            $params[] = "%" . $coment . "%";
+        if ($comment != null) {
+            $conditions[] = 'comment LIKE ?';
+            $params[] = "%" . $comment . "%";
         }
         if ($reply != null) {
             $conditions[] = 'reply LIKE ?';
@@ -65,8 +65,8 @@ class ReviewsModel extends modelAbstract
         return $query->fetchColumn() > 0;
     }
     public function updateReview($id, $data, $reply){
-        $query = $this->db->prepare("UPDATE review SET id_product = ?, client_name = ?, score = ?, coment = ?, reply = ? WHERE review . id = ?");
-        $result = $query->execute([$data['id_product'], $data['client_name'], $data['score'], $data['coment'], $reply, intval($id)]);
+        $query = $this->db->prepare("UPDATE review SET id_product = ?, client_name = ?, score = ?, comment = ?, reply = ? WHERE review . id = ?");
+        $result = $query->execute([$data['id_product'], $data['client_name'], $data['score'], $data['comment'], $reply, intval($id)]);
         return $result;
     }
     public function updateReplyReview($id, $reply){
@@ -81,8 +81,8 @@ class ReviewsModel extends modelAbstract
         return $review;
     }
     public function createReview($data,$reply){
-        $query = $this->db->prepare('INSERT INTO review(id_product, client_name, score, coment) VALUES (?, ?, ?, ?)');
-        $query->execute([$data['id_product'], $data['client_name'], $data['score'], $data['coment']]);
+        $query = $this->db->prepare('INSERT INTO review(id_product, client_name, score, comment) VALUES (?, ?, ?, ?)');
+        $query->execute([$data['id_product'], $data['client_name'], $data['score'], $data['comment']]);
         $id = $this->db->lastInsertId();
         return $id;
     }

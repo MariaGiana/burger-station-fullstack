@@ -1,4 +1,4 @@
-<!--Comentarios: para porder pasar el $res del error lo tuve que poner error en el constructor para que me funcionara-->
+<!--commentarios: para porder pasar el $res del error lo tuve que poner error en el constructor para que me funcionara-->
 <?php
 require_once './app/model/orders.model.php';
 require_once './app/view/orders.view.php';
