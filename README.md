@@ -25,7 +25,18 @@ Test a complex query (2 filters + DESC order + Pagination) directly in your brow
   [GET /reviews?name=Juan&score=5&orderBy=score&order=desc&page=1](https://mariagiana.infinityfree.me/burger-station/backend/reviews?name=Juan&score=5&orderBy=score&order=desc&page=1)
 
 ---  
+### 📸 Previews / Capturas de Pantalla
 
+| 🏠 Vista de Inicio (Cliente) | 🍔 Órdenes por Categoría |
+| :---: | :---: |
+| <img width="420" alt="Home" src="https://github.com/user-attachments/assets/b56a7d1b-0d08-42c4-a213-0ef8ea0fcb3c" /> | <img width="240" alt="Categorías" src="https://github.com/user-attachments/assets/7ae8431c-a7b4-4682-aa50-bce6242b6eb9" /> |
+
+| ⚙️ Panel de Control (Admin) | 📱 Panel de Productos (Mobile) |
+| :---: | :---: |
+| <img width="420" alt="Admin Panel" src="https://github.com/user-attachments/assets/cc35bd61-b15d-4b22-8a82-3d37d72877a0" /> | <img width="110" alt="Admin Mobile" src="https://github.com/user-attachments/assets/71c216bd-b2a3-4132-9489-26794c97d9fb" /> |
+
+
+---
 ## 🛠️ Technologies Used
 - **Backend:** Native PHP (OOP), MVC Architecture, Custom Semantic Routing System.
 - **Frontend:** HTML5, CSS3, PHP templates (`.phtml`), Vanilla JavaScript.
