@@ -1,54 +1,68 @@
 <?php 
 require_once './templates/layout/header.phtml';
 ?>
-  
-<div class="container overflow-hidden text-center">
-  <h2>PRODUCTOS</h2>
-  <h3>Seleccione la operacion que desea realizar</h3>
-  <div class="table-responsive">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Imagen del producto</th>
-          <th scope="col">N° Producto</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Precio</th>
-          <th scope="col">Descripcion</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach ($products as $product) : ?>
-          <tr>
-            <th scope="row">
-              <?php if (!empty($product->image_product)) : ?>
-                <img src="<?php echo $product->image_product ?>" id= "image_product" alt="Imagen de <?php echo $product->name ?>" style="width: 60px; height: auto">
-              <?php endif; ?>
-            </th>
-            <th scope="row"><?php echo $product->id ?></th>
-            <td><?php echo $product->name ?></td>
-            <td><?php echo $product->price ?></td>
-            <td><?php echo $product->description ?></td>
-            <td class="d-none d-md-table-cell">
-              <a href="<?php echo BASE_URL ?>modificarProducto/<?php echo $product->id ?>" class="btn text-white btn-success">Modificar</a>
-            </td>
-            <td class="d-none d-md-table-cell">
-              <a href="<?php echo BASE_URL ?>eliminarProducto/<?php echo $product->id ?>" class="btn text-white btn-danger">Eliminar</a>
-            </td>
-          </tr>
-          <tr class="d-md-none"> <!-- Fila para botones en pantallas pequeñas -->
-            <td colspan="5" class="text-center">
-              <!--<div class="d-flex flex-column align-items-center">   si los queremos apilados-->
-              <a href="<?php echo BASE_URL ?>modificarProducto/<?php echo $product->id ?>" class="btn text-white btn-success mb-2">Modificar</a>
-              <a href="<?php echo BASE_URL ?>eliminarProducto/<?php echo $product->id ?>" class="btn btn-danger">Eliminar</a>
-            </td>
-          </tr>
-        <?php endforeach ?>
-      </tbody>
-    </table>
-  </div>
-  <a class="btn btn-primary " href="<?php echo BASE_URL ?>nuevoProducto">AGREGAR</a>
 
+<div class="container my-5 text-center">
+    <h1 class="display-5 fw-bold text-dark mb-2">Panel de Control: Productos</h1>
+    <h3 class="fs-5 text-secondary fw-normal mb-4">Seleccione la operación que desea realizar</h3>
+    
+    <div class="text-end mb-3">
+        <a class="btn btn-primary px-4 fw-bold shadow-sm" href="<?php echo BASE_URL ?>nuevoProducto">
+            ➕ AGREGAR NUEVO PRODUCTO
+        </a>
+    </div>
+
+    <div class="table-responsive shadow-sm rounded border border-dark-subtle">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col" class="py-3">Imagen</th>
+                    <th scope="col" class="py-3">N° Producto</th>
+                    <th scope="col" class="py-3">Nombre</th>
+                    <th scope="col" class="py-3">Precio</th>
+                    <th scope="col" class="py-3">Descripción</th>
+                    <th scope="col" class="py-3 d-none d-md-table-cell">Modificar</th>
+                    <th scope="col" class="py-3 d-none d-md-table-cell">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($products as $product) : ?>
+                    <tr>
+                        <td class="text-center">
+                            <?php if (!empty($product->image_product)) : ?>
+                                <img src="<?php echo $product->image_product ?>" alt="Imagen de <?php echo $product->name ?>" class="rounded border shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
+                            <?php else : ?>
+                                <span class="text-muted fs-7">Sin foto</span>
+                            <?php endif; ?>
+                        </td>
+                        <th scope="row" class="fw-bold">#<?php echo $product->id ?></th>
+                        <td class="fw-semibold text-dark"><?php echo $product->name ?></td>
+                        <td class="text-secondary fw-bold">$<?php echo $product->price ?></td>
+                        <td class="text-muted text-start" style="max-width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                            <?php echo $product->description ?>
+                        </td>
+                        <td class="d-none d-md-table-cell">
+                            <a href="<?php echo BASE_URL ?>modificarProducto/<?php echo $product->id ?>" class="btn text-white btn-success px-3 shadow-sm">Modificar</a>
+                        </td>
+                        <td class="d-none d-md-table-cell">
+                            <a href="<?php echo BASE_URL ?>eliminarProducto/<?php echo $product->id ?>" class="btn text-white btn-danger px-3 shadow-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                    
+                    <tr class="d-md-none bg-light-subtle">
+                        <td colspan="5" class="text-center py-2 border-bottom">
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="<?php echo BASE_URL ?>modificarProducto/<?php echo $product->id ?>" class="btn text-white btn-success btn-sm px-3">Modificar</a>
+                                <a href="<?php echo BASE_URL ?>eliminarProducto/<?php echo $product->id ?>" class="btn text-white btn-danger btn-sm px-3">Eliminar</a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
 </div>
+
 <?php
 require_once './templates/layout/footer.phtml';
 ?>

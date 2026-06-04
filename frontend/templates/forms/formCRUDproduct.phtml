@@ -35,12 +35,12 @@ $isEdit = isset($product);
     <input type="url" style="width: 100%" class="form-control image_product" id="image_product" name="image_product" placeholder="http://ejemplo.com/imagen.jpg" value="<?= isset($product->image_product) ? $product->image_product : '' ?>">
 </div>
 
-
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary btn-lg mt-3">Guardar</button>
-        </div>
+        <div class="text-center mt-4">
+    <a href="<?php echo BASE_URL; ?>controlarProductos" class="btn btn-secondary btn-lg me-2" id="volver">VOLVER</a>
+    <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+</div>
     </form>
-    <a href="<?php echo BASE_URL; ?>controlarProductos" class="btn btn-primary ms-5 mt-2" id="volver">VOLVER</a>
+   
 </div>
 
 <?php 

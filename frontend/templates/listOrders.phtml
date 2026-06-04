@@ -1,24 +1,43 @@
 <?php require './templates/layout/header.phtml';?>
 
-<div class="container overflow-hidden text-center">
-<h2>ORDENES</h2>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">N° Orden</th>
-        <th scope="col">Precio</th>
-        <th scope="col">----</th>
-      </tr>
-    </thead>
-    <tbody>
-    <?php foreach($orders as $order) :?>
-      <tr>
-        <th scope="row"><?php echo$order->id?></th>
-        <td><?php echo $order->total ?></td>
-        <td><a class="btn btn-warning ms-2 mt-2" href="<?php echo BASE_URL . "verOrden/" . $order->id?>">Ver Completo</a></td>
-      </tr>
-    <?php endforeach ?>
-    </tbody>
-  </table>
+<!-- Sección de Bienvenida (Estilo de la imagen) -->
+<div class="container my-5 text-center">
+    <h1 class="display-4 fw-bold text-primary mb-2">¡Bienvenido a To-Day!</h1>
+    <p class="lead text-muted mx-auto" style="max-width: 700px;">
+        Tu tienda de comidas rápidas favorita. Realiza pedidos de pizzas, hamburguesas, postres y más.
+    </p>
 </div>
+
+<hr class="my-4 opacity-25"> <!-- Línea sutil de separación -->
+
+<!-- Sección de la Tabla de Órdenes -->
+<div class="container overflow-hidden text-center mb-5">
+    <h3 class="mb-4 fw-normal text-secondary">Ver las Órdenes</h3>
+    
+    <div class="table-responsive shadow-sm rounded">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col" class="py-3">N° Orden</th>
+                    <th scope="col" class="py-3">Precio</th>
+                    <th scope="col" class="py-3">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach($orders as $order) :?>
+                <tr>
+                    <th scope="row" class="fw-bold"><?php echo $order->id ?></th>
+                    <td class="text-secondary">$<?php echo number_format($order->total, 2, ',', '.') ?></td>
+                    <td>
+                        <a class="btn btn-warning px-4 shadow-sm" href="<?php echo BASE_URL . "verOrden/" . $order->id?>">
+                            Ver Completo
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 <?php require './templates/layout/footer.phtml' ?>

@@ -1,24 +1,32 @@
-<?php require './templates/layout/header.phtml'
-?>
-<div class="container mt-5">
-    <h2 class="mb-4">Órdenes para el Producto: <?= $product->name ?></h2>
+<?php require './templates/layout/header.phtml' ?>
+
+<div class="container mt-5" style="max-width: 700px;">
+    <h2 class="mb-4 text-center">Órdenes para el Producto: <span class="text-primary"><?= $product->name ?></span></h2>
+    
     <ul class="list-group">
         <?php foreach ($orders as $order) { ?>
-            <li class="list-group-item mb-3 shadow-sm p-3 rounded">
+            <li class="list-group-item mb-3 shadow-sm p-4 rounded border border-dark-subtle">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
-                        <h5 class="mb-1">ID Pedido: <?= $order->id ?></h5>
-                        <p class="mb-1"><b>Cantidad:</b> <?= $order->cant_products ?></p>
-                        <p class="mb-1"><b>Total:</b> $<?= $order->total ?></p>
-                        <p class="mb-0"><b>Fecha:</b> <?= $order->date ?></p>
-                        <p class="mb-0" ><b>Categoria:</b> <?= $product->name ?></p>
+                        <h5 class="mb-2 text-dark fw-bold">ID Pedido: #<?= $order->id ?></h5>
+                        
+                        <p class="mb-1 text-secondary"><b>Cantidad:</b> <?= $order->cant_products ?></p>
+                        <p class="mb-1 text-secondary"><b>Total:</b> <span class="text-dark fw-bold">$<?= $order->total ?></span></p>
+                        <p class="mb-1 text-secondary"><b>Fecha:</b> <?= $order->date ?></p>
+                        <p class="mb-0 text-secondary"><b>Categoría:</b> <?= $product->name ?></p>
+                    </div>
+                    
+                    <div>
+                        <span class="badge bg-dark p-2 text-uppercase fs-6">Activa</span>
                     </div>
                 </div>
             </li>
         <?php } ?>
     </ul>
+
+    <div class="text-center mt-5 mb-5">
+        <a href="<?php echo BASE_URL; ?>categorias" class="btn btn-primary px-4 py-2" id="volver">VOLVER</a>
+    </div>
 </div>
-<div class="text-center mt-4">
-                <a href="<?php echo BASE_URL; ?>categorias" class="btn btn-primary ms-5 mt-2" id="volver">VOLVER</a>
-</div>
+
 <?php require './templates/layout/footer.phtml'; ?>

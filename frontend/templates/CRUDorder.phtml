@@ -1,44 +1,53 @@
 <?php 
 require_once './templates/layout/header.phtml';
 ?>
-  
 
-
-
-<!-- L variable items contiene el nombre del item -->
-<div class="container overflow-hidden text-center">
-    <h2>ORDENES</h2>
-    <h3>Seleccione la operacion que desea realizar</h3>
-    <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">N° Orden</th>
-        <th scope="col">Fecha</th>
-        <th scope="col">Cantidad</th>
-        <th scope="col">Precio</th>
-        <th scope="col">Modificar</th>
-        <th scope="col">Eliminar</th>
-      </tr>
-    </thead>
-    <tbody>
-    <?php foreach($ordens as $order) :?>
-      <tr>
-        <th scope="row"><?php echo$order->id?></th>
-        <td><?php echo $order->date ?></td>
-        <td><?php echo $order->cant_products ?></td>
-        <td><?php echo $order->total ?></td>
-        <td><a href="<?php echo BASE_URL ?>formularioModificarOrden/<?php echo $order->id ?>" class="btn text-white btn-success">Modificar</a></td>
-        <td><a href="<?php echo BASE_URL ?>eliminarOrden/<?php echo $order->id ?>" class="btn text-white btn-danger">Eliminar</a></td>
-      </tr>
-    <?php endforeach ?>
-    </tbody>
-  </table>
-  <a class="btn btn-primary " href="<?php echo BASE_URL ?>formularioNuevaOrden">AGREGAR</a>
-
-
-
+<div class="container my-5 text-center">
+    <h1 class="display-5 fw-bold text-dark mb-2">Panel de Control: Órdenes</h1>
+    <h3 class="fs-5 text-secondary fw-normal mb-4">Seleccione la operación que desea realizar</h3>
     
+    <div class="text-end mb-3">
+        <a class="btn btn-primary px-4 fw-bold shadow-sm" href="<?php echo BASE_URL ?>formularioNuevaOrden">
+            ➕ AGREGAR NUEVA ORDEN
+        </a>
+    </div>
+
+    <div class="table-responsive shadow-sm rounded border border-dark-subtle">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col" class="py-3">N° Orden</th>
+                    <th scope="col" class="py-3">Fecha</th>
+                    <th scope="col" class="py-3">Cantidad</th>
+                    <th scope="col" class="py-3">Precio</th>
+                    <th scope="col" class="py-3">Modificar</th>
+                    <th scope="col" class="py-3">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach($ordens as $order) :?>
+                <tr>
+                    <th scope="row" class="fw-bold">#<?php echo $order->id ?></th>
+                    <td class="text-muted"><?php echo $order->date ?></td>
+                    <td><?php echo $order->cant_products ?> u.</td>
+                    <td class="fw-semibold text-dark">$<?php echo $order->total ?></td>
+                    <td>
+                        <a href="<?php echo BASE_URL ?>formularioModificarOrden/<?php echo $order->id ?>" class="btn btn-success text-white px-3 shadow-sm">
+                            Modificar
+                        </a>
+                    </td>
+                    <td>
+                        <a href="<?php echo BASE_URL ?>eliminarOrden/<?php echo $order->id ?>" class="btn btn-danger text-white px-3 shadow-sm">
+                            Eliminar
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
 </div>
+
 <?php 
 require_once './templates/layout/footer.phtml';
 ?>
